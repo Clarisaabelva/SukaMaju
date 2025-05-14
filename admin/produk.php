@@ -69,7 +69,7 @@
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6>Nama Kalian</h6>
+                            <h6>Clarisa Belva</h6>
                             <span>Admin</span>
                         </li>
                         <li>
@@ -100,48 +100,48 @@
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="index.php">
-                    <i class="bi bi-grid"></i>
+                   <i class="bi bi-house"></i>
                     <span>Beranda</span>
                 </a>
             </li><!-- End Dashboard Nav -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="kategori.php">
-                    <i class="bi bi-airplane"></i>
+                    <i class="bi bi-basket"></i>
                     <span>Kategori produk</span>
                 </a>
             </li><!-- End Kategori Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="produk.php">
-                    <i class="bi bi-question-circle"></i>
+                    <i class="bi bi-box2"></i>
                     <span>Produk</span>
                 </a>
             </li><!-- End Produk Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link" href="keranjang.php">
-                    <i class="bi bi-envelope"></i>
+                     <i class="bi bi-cart4"></i>
                     <span>Keranjang</span>
                 </a>
             </li><!-- End Keranjang Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="transaksi.php">
-                    <i class="bi bi-card-list"></i>
+                    <i class="bi bi-credit-card"></i>
                     <span>Transaksi</span>
                 </a>
             </li><!-- End Transaksi Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="laporan.php">
-                    <i class="bi bi-box-arrow-in-right"></i>
+                    <i class="bi bi-journal-check"></i>
                     <span>Laporan</span>
                 </a>
             </li><!-- End Laporan Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pengguna.php">
-                    <i class="bi bi-dash-circle"></i>
+                    <i class="bi bi-person"></i>
                     <span>Pengguna</span>
                 </a>
             </li><!-- End pengguna Page Nav -->
@@ -262,10 +262,10 @@
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
-            &copy; Copyright <strong><span>Nama Website</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>SukaMaju</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-            Designed by <a href="https://instagram.com/namaig/">Nama Anda</a>
+            Designed by <a href="https://www.instagram.com/clrsbelva._?igsh=aXIyNHB6NnJjNzF0">Clarisa Belva</a>
         </div>
     </footer><!-- End Footer -->
 

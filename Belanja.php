@@ -328,7 +328,6 @@
                                                             <a href="#"><img src="assets/images/minicart/pr-01.jpg" width="90" height="90" alt="National Fresh"></a>
                                                         </div>
                                                         <div class="left-info">
-                                                            <div class="product-title"><a href="#" class="product-name">National Fresh Fruit</a></div>
                                                             <div class="price">
                                                                 <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
                                                                 <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
@@ -761,135 +760,6 @@
 
                 <!-- Main content -->
                 <div id="main-content" class="main-content col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-                    <div class="block-item recently-products-cat md-margin-bottom-39">
-                        <ul class="products-list biolife-carousel nav-center-02 nav-none-on-mobile" data-slick='{"rows":1,"arrows":true,"dots":false,"infinite":false,"speed":400,"slidesMargin":0,"slidesToShow":5, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 3}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin": 10}},{"breakpoint":768, "settings":{ "slidesToShow": 2, "slidesMargin":10 }}]}' >
-                            <li class="product-item">
-                                <div class="contain-product layout-02">
-                                    <div class="product-thumb">
-                                        <a href="#" class="link-to-product">
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <div class="price">
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product-item">
-                                <div class="contain-product layout-02">
-                                    <div class="product-thumb">
-                                        <a href="#" class="link-to-product">
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <div class="price">
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product-item">
-                                <div class="contain-product layout-02">
-                                    <div class="product-thumb">
-                                        <a href="#" class="link-to-product">
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <div class="price">
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product-item">
-                                <div class="contain-product layout-02">
-                                    <div class="product-thumb">
-                                        <a href="#" class="link-to-product">
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <div class="price">
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product-item">
-                                <div class="contain-product layout-02">
-                                    <div class="product-thumb">
-                                        <a href="#" class="link-to-product">
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <div class="price">
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product-item">
-                                <div class="contain-product layout-02">
-                                    <div class="product-thumb">
-                                        <a href="#" class="link-to-product">
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <div class="price">
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product-item">
-                                <div class="contain-product layout-02">
-                                    <div class="product-thumb">
-                                        <a href="#" class="link-to-product">
-                                            <img src="assets/images/products/p-07.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <b class="categories">Fresh Fruit</b>
-                                        <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
-                                        <div class="price">
-                                            <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                            <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product-item">
-                                <div class="contain-product layout-02">
-                                    <div class="product-thumb">
-                                        <a href="#" class="link-to-product">
-                                            <img src="assets/images/products/p-03.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <b class="categories">Fresh Fruit</b>
-                                        <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
-                                        <div class="price">
-                                            <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                            <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product-item">
-                                <div class="contain-product layout-02">
-                                    <div class="product-thumb">
-                                        <a href="#" class="link-to-product">
-                                            <img src="assets/images/products/p-21.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <b class="categories">Fresh Fruit</b>
-                                        <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
-                                        <div class="price">
-                                            <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                            <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
                     <div class="product-category list-style">
 
                         <div id="top-functions-area" class="top-functions-area" >
@@ -929,17 +799,15 @@
                                             </a>
                                         </div>
                                         <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">Organic 10 Assorted Flavors Jelly Beans, 5.5 Oz</a></h4>
+                                            <b class="categories">Buah</b>
+                                            <h4 class="product-title"><a href="#" class="pr-name">Apel</a></h4>
                                             <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel maximus lacus. Duis ut mauris eget justo dictum tempus sed vel tellus.</p>
                                             <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                                <ins><span class="price-amount"><span class="currencySymbol">Rp.</span>85.00</span></ins>
                                             </div>
                                             <div class="buttons">
                                                 <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                <a href="#" class="btn add-to-cart-btn">add to cart</a>
-                                                <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
+                                                <a href="#" class="btn add-to-cart-btn">Keranjang</a>
                                             </div>
                                         </div>
                                         <div class="advance-info">
@@ -959,17 +827,15 @@
                                             </a>
                                         </div>
                                         <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">Organic 10 Assorted Flavors Jelly Beans, 5.5 Oz</a></h4>
-                                            <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel maximus lacus. Duis ut mauris eget justo dictum tempus sed vel tellus.</p>
+                                            <b class="categories">Sayuran</b>
+                                            <h4 class="product-title"><a href="#" class="pr-name">Sawi</a></h4>
+                                            <p class="excerpt">Sawi Hijau dari petani sayur lokal, Blora</p>
                                             <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                                <ins><span class="price-amount"><span class="currencySymbol">Rp.</span>3.000</span></ins>
                                             </div>
                                             <div class="buttons">
                                                 <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                <a href="#" class="btn add-to-cart-btn">add to cart</a>
-                                                <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
+                                                <a href="#" class="btn add-to-cart-btn">Keranjang</a>
                                             </div>
                                         </div>
                                         <div class="advance-info">
@@ -989,17 +855,15 @@
                                             </a>
                                         </div>
                                         <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">Organic 10 Assorted Flavors Jelly Beans, 5.5 Oz</a></h4>
-                                            <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel maximus lacus. Duis ut mauris eget justo dictum tempus sed vel tellus.</p>
+                                            <b class="categories">Buah</b>
+                                            <h4 class="product-title"><a href="#" class="pr-name">Pisang Cavendish</a></h4>
+                                            <p class="excerpt">Pisang Cavendish, Buah yang harganya murah tapi banyak manfaat</p>
                                             <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                                <ins><span class="price-amount"><span class="currencySymbol">Rp.</span>45.000</span></ins>
                                             </div>
                                             <div class="buttons">
                                                 <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                <a href="#" class="btn add-to-cart-btn">add to cart</a>
-                                                <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
+                                                <a href="#" class="btn add-to-cart-btn">Keranjang</a>
                                             </div>
                                         </div>
                                         <div class="advance-info">
@@ -1210,10 +1074,6 @@
                             </div>
                             <div class="biolife-social inline">
                                 <ul class="socials">
-                                    <li><a href="#" title="twitter" class="socail-btn"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" title="facebook" class="socail-btn"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" title="pinterest" class="socail-btn"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" title="youtube" class="socail-btn"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
                                     <li><a href="#" title="instagram" class="socail-btn"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
@@ -1225,7 +1085,7 @@
                         <div class="separator sm-margin-top-70px xs-margin-top-40px"></div>
                     </div>
                     <div class="col-lg-6 col-sm-6 col-xs-12">
-                       <div class="copy-right-text"><p><a href="templateshub.net">Templates Hub</a></p></div>
+                       <div class="copy-right-text"><p><a href="templateshub.net">Copyright 2025. All Rights Reserved</a></p></div>
 
                     </div>
                     <div class="col-lg-6 col-sm-6 col-xs-12">

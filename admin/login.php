@@ -1,3 +1,39 @@
+<?php
+session_start();
+require "koneksi.php";
+
+if (isset($_POST["login"])) {
+  $username = $_POST["username"];
+  $password = $_POST["password"];
+
+  // Cek apakah username ditemukan
+  $result = mysqli_query($koneksi, "SELECT * FROM tb_user WHERE username='$username'");
+
+  if (mysqli_num_rows($result) === 1) {
+    $row = mysqli_fetch_assoc($result);
+
+    // Cek password
+    if (password_verify($password, $row["password"])) {
+      // Cek apakah status user adalah admin
+      if ($row["status"] === "admin") {
+        $_SESSION["login"] = true;
+        $_SESSION["username"] = $row["username"];
+        $_SESSION["status"] = $row["status"];
+        header("Location: index.php");
+        exit;
+      } else {
+        echo "<script>alert('Anda tidak memiliki akses sebagai admin.')</script>";
+      }
+    } else {
+      echo "<script>alert('Username atau password yang anda masukkan salah')</script>";
+    }
+  } else {
+    echo "<script>alert('Username atau password yang anda masukkan salah')</script>";
+  }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +41,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Pages / Login - NiceAdmin Bootstrap Template</title>
+  <title>Login - SukaMaju Admin</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -29,13 +65,6 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: NiceAdmin
-  * Updated: Sep 18 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -51,7 +80,7 @@
               <div class="d-flex justify-content-center py-4">
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
                   <img src="assets/img/logo.png" alt="">
-                  <span class="d-none d-lg-block">NiceAdmin</span>
+                  <span class="d-none d-lg-block">SukaMaju Admin</span>
                 </a>
               </div><!-- End Logo -->
 
@@ -64,34 +93,22 @@
                     <p class="text-center small">Enter your username & password to login</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form class="row g-3" method="post">
 
                     <div class="col-12">
-                      <label for="yourUsername" class="form-label">Username</label>
-                      <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                      <label for="username" class="form-label">Username</label>
+                      <div class="input-group">
                         <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please enter your username.</div>
                       </div>
                     </div>
 
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">Password</label>
+                      <label for="password" class="form-label">Password</label>
                       <input type="password" name="password" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
                     <div class="col-12">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">Remember me</label>
-                      </div>
-                    </div>
-                    <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Login</button>
-                    </div>
-                    <div class="col-12">
-                      <p class="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p>
+                      <button class="btn btn-primary w-100" type="submit" name="login">Login</button>
                     </div>
                   </form>
 
@@ -99,11 +116,7 @@
               </div>
 
               <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Designed by <a href="https://instagram.com/clrsbelva._/" target="_blank">Clarisa</a>
               </div>
 
             </div>

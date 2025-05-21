@@ -116,7 +116,7 @@ if (isset($_POST["login"])) {
               </div>
 
               <div class="credits">
-                Designed by <a href="https://instagram.com/clrsbelva._/" target="_blank">Clarisa</a>
+                Designed by <a href="https://instagram.com/clrsbelva._/" target="_blank">Clarisa Belva</a>
               </div>
 
             </div>

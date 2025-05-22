@@ -36,36 +36,13 @@
     <header id="header" class="header-area style-01 layout-03">
         <div class="header-top bg-main hidden-xs">
             <div class="container">
-                <div class="top-bar left">
-                    <ul class="horizontal-menu">
-                        <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>Organic@company.com</a></li>
-                        <li><a href="#">Free Shipping for all Order of $99</a></li>
                     </ul>
                 </div>
-                <div class="top-bar right">
-                    <ul class="social-list">
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
                     </ul>
-                    <ul class="horizontal-menu">
-                        <li class="horz-menu-item currency">
-                            <select name="currency">
-                                <option value="eur">€ EUR (Euro)</option>
-                                <option value="usd" selected>$ USD (Dollar)</option>
-                                <option value="usd">£ GBP (Pound)</option>
-                                <option value="usd">¥ JPY (Yen)</option>
                             </select>
                         </li>
-                        <li class="horz-menu-item lang">
-                            <select name="language">
-                                <option value="fr">French (EUR)</option>
-                                <option value="en" selected>English (USD)</option>
-                                <option value="ger">Germany (GBP)</option>
-                                <option value="jp">Japan (JPY)</option>
                             </select>
                         </li>
-                        <li><a href="login.html" class="login-link"><i class="biolife-icon icon-login"></i>Login/Register</a></li>
                     </ul>
                 </div>
             </div>
@@ -74,61 +51,37 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-2 col-md-6 col-xs-6">
-                        <a href="index-2.html" class="biolife-logo"><img src="assets/images/organic-3.png" alt="biolife logo" width="135" height="34"></a>
+                        <h1>SukaMaju</h1>
                     </div>
                     <div class="col-lg-6 col-md-7 hidden-sm hidden-xs">
                         <div class="primary-menu">
                             <ul class="menu biolife-menu clone-main-menu clone-primary-menu" id="primary-menu" data-menuname="main menu">
-                                <li class="menu-item"><a href="index-2.html">Home</a></li>
+                                <li class="menu-item"><a href="index-2.html">Beranda</a></li>
                                 <li class="menu-item menu-item-has-children has-megamenu">
-                                    <a href="#" class="menu-name" data-title="Shop" >Shop</a>
+                                    <a href="#" class="menu-name" data-title="Shop" >Belanja</a>
                                     <div class="wrap-megamenu lg-width-900 md-width-750">
                                         <div class="mega-content">
                                             <div class="col-lg-3 col-md-3 col-xs-12 md-margin-bottom-0 xs-margin-bottom-25">
                                                 <div class="wrap-custom-menu vertical-menu">
-                                                    <h4 class="menu-title">Fresh Berries</h4>
                                                     <ul class="menu">
-                                                        <li><a href="#">Fruit & Nut Gifts</a></li>
-                                                        <li><a href="#">Mixed Fruits</a></li>
-                                                        <li><a href="#">Oranges</a></li>
-                                                        <li><a href="#">Bananas & Plantains</a></li>
-                                                        <li><a href="#">Fresh Gala Apples</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3 col-md-3 col-xs-12 md-margin-bottom-0 xs-margin-bottom-25">
                                                 <div class="wrap-custom-menu vertical-menu">
-                                                    <h4 class="menu-title">Vegetables</h4>
                                                     <ul class="menu">
-                                                        <li><a href="#">Berries</a></li>
-                                                        <li><a href="#">Pears</a></li>
-                                                        <li><a href="#">Chili Peppers</a></li>
-                                                        <li><a href="#">Fresh Avocado</a></li>
-                                                        <li><a href="#">Grapes</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3 col-md-3 col-xs-12 md-margin-bottom-0 xs-margin-bottom-25">
                                                 <div class="wrap-custom-menu vertical-menu ">
-                                                    <h4 class="menu-title">Fresh Fruits</h4>
                                                     <ul class="menu">
-                                                        <li><a href="#">Basket of apples</a></li>
-                                                        <li><a href="#">Strawberry</a></li>
-                                                        <li><a href="#">Blueberry</a></li>
-                                                        <li><a href="#">Orange</a></li>
-                                                        <li><a href="#">Pineapple</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3 col-md-3 col-xs-12 md-margin-bottom-0 xs-margin-bottom-25">
                                                 <div class="wrap-custom-menu vertical-menu">
-                                                    <h4 class="menu-title">Featured Products</h4>
                                                     <ul class="menu">
-                                                        <li><a href="#">Coffee Creamers</a></li>
-                                                        <li><a href="#">Mayonnaise</a></li>
-                                                        <li><a href="#">Almond Milk</a></li>
-                                                        <li><a href="#">Fruit Jam</a></li>
-                                                        <li><a href="#">Beverages</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -136,7 +89,6 @@
                                     </div>
                                 </li>
                                 <li class="menu-item menu-item-has-children has-child">
-                                    <a href="#" class="menu-name" data-title="Products">Products</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item"><a href="#">Omelettes</a></li>
                                         <li class="menu-item"><a href="#">Breakfast Scrambles</a></li>
@@ -167,7 +119,6 @@
                                     </ul>
                                 </li>
                                 <li class="menu-item menu-item-has-children has-megamenu">
-                                    <a href="#" class="menu-name" data-title="Demo">Demo</a>
                                     <div class="wrap-megamenu lg-width-800 md-width-750">
                                         <div class="mega-content">
                                             <div class="col-lg-3 col-md-3 col-xs-12 md-margin-bottom-0 xs-margin-bottom-25">
@@ -232,34 +183,17 @@
                                     </div>
                                 </li>
                                 <li class="menu-item menu-item-has-children has-megamenu">
-                                    <a href="#" class="menu-name" data-title="Blog">Blog</a>
                                     <div class="wrap-megamenu lg-width-800 md-width-750">
                                         <div class="mega-content">
                                             <div class="col-lg-3 col-md-3 col-xs-6">
                                                 <div class="wrap-custom-menu vertical-menu">
-                                                    <h4 class="menu-title">Blog Categories</h4>
                                                     <ul class="menu">
-                                                        <li><a href="#">Beauty (30)</a></li>
-                                                        <li><a href="#">Fashion (50)</a></li>
-                                                        <li><a href="#">Food (10)</a></li>
-                                                        <li><a href="#">Life Style (60)</a></li>
-                                                        <li><a href="#">Travel (10)</a></li>
-                                                        <li><a href="#">Nutrition (35)</a></li>
-                                                        <li><a href="#">Food Decoration (45)</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3 col-md-3 col-xs-6">
                                                 <div class="wrap-custom-menu vertical-menu">
-                                                    <h4 class="menu-title">Featured Posts</h4>
                                                     <ul class="menu">
-                                                        <li><a href="#">Post example<sup>#1</sup></a></li>
-                                                        <li><a href="#">Post example<sup>#2</sup></a></li>
-                                                        <li><a href="#">Post example<sup>#3</sup></a></li>
-                                                        <li><a href="#">Post example<sup>#4</sup></a></li>
-                                                        <li><a href="#">Post example<sup>#5</sup></a></li>
-                                                        <li><a href="#">Post example<sup>#6</sup></a></li>
-                                                        <li><a href="#">Post example<sup>#7</sup></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -291,9 +225,6 @@
                                                             <div class="block-post-item">
                                                                 <div class="thumb"><a href="#"><img src="assets/images/megamenu/thumb-07.jpg" width="100" height="73" alt=""></a></div>
                                                                 <div class="left-info">
-                                                                    <h4 class="post-name"><a href="#">Ashwagandha: The #1 Herb in the World for Anxiety?</a></h4>
-                                                                    <span class="p-date">Apr 26, 2019</span>
-                                                                    <span class="p-comment">10 Comments</span>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -303,7 +234,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="menu-item"><a href="contact.html">Contact</a></li>
+                                <li class="menu-item"><a href="contact.html">Hubungi Kami</a></li>
                             </ul>
                         </div>
                     </div>
@@ -334,8 +265,6 @@
                             <div class="wishlist-block hidden-sm hidden-xs">
                                 <a href="#" class="link-to">
                                     <span class="icon-qty-combine">
-                                        <i class="icon-heart-bold biolife-icon"></i>
-                                        <span class="qty">4</span>
                                     </span>
                                 </a>
                             </div>
@@ -344,10 +273,10 @@
                                     <a href="javascript:void(0)" class="link-to">
                                             <span class="icon-qty-combine">
                                                 <i class="icon-cart-mini biolife-icon"></i>
-                                                <span class="qty">8</span>
+                                                <span class="qty">0</span>
                                             </span>
-                                        <span class="title">My Cart -</span>
-                                        <span class="sub-total">$0.00</span>
+                                        <span class="title">Keranjang -</span>
+                                        <span class="sub-total">Rp.0</span>
                                     </a>
                                     <div class="cart-content">
                                         <div class="cart-inner">
@@ -489,18 +418,11 @@
                     <div class="col-lg-3 col-md-4">
                         <div class="vertical-menu vertical-category-block">
                             <div class="block-title">
-                                <span class="menu-icon">
-                                    <span class="line-1"></span>
-                                    <span class="line-2"></span>
-                                    <span class="line-3"></span>
                                 </span>
-                                <span class="menu-title">All departments</span>
-                                <span class="angle" data-tgleclass="fa fa-caret-down"><i class="fa fa-caret-up" aria-hidden="true"></i></span>
                             </div>
                             <div class="wrap-menu">
                                 <ul class="menu clone-main-menu">
                                     <li class="menu-item menu-item-has-children has-megamenu">
-                                        <a href="#" class="menu-name" data-title="Fruit & Nut Gifts"><i class="biolife-icon icon-fruits"></i>Fruit & Nut Gifts</a>
                                         <div class="wrap-megamenu lg-width-900 md-width-640">
                                             <div class="mega-content">
                                                 <div class="row">
@@ -754,26 +676,10 @@
                     </div>
                     <div class="col-lg-9 col-md-8 padding-top-2px">
                         <div class="header-search-bar layout-01">
-                            <form action="#" class="form-search" name="desktop-seacrh" method="get">
-                                <input type="text" name="s" class="input-text" value="" placeholder="Search here...">
-                                <select name="category">
-                                    <option value="-1" selected>All Categories</option>
-                                    <option value="vegetables">Vegetables</option>
-                                    <option value="fresh_berries">Fresh Berries</option>
-                                    <option value="ocean_foods">Ocean Foods</option>
-                                    <option value="butter_eggs">Butter & Eggs</option>
-                                    <option value="fastfood">Fastfood</option>
-                                    <option value="fresh_meat">Fresh Meat</option>
-                                    <option value="fresh_onion">Fresh Onion</option>
-                                    <option value="papaya_crisps">Papaya & Crisps</option>
-                                    <option value="oatmeal">Oatmeal</option>
                                 </select>
-                                <button type="submit" class="btn-submit"><i class="biolife-icon icon-search"></i></button>
                             </form>
                         </div>
                         <div class="live-info">
-                            <p class="telephone"><i class="fa fa-phone" aria-hidden="true"></i><b class="phone-number">(+900) 123 456 7891</b></p>
-                            <p class="working-time">Mon-Fri: 8:30am-7:30pm; Sat-Sun: 9:30am-4:30pm</p>
                         </div>
                     </div>
                 </div>
@@ -783,20 +689,19 @@
 
     <!--Hero Section-->
     <div class="hero-section hero-background">
-        <h1 class="page-title">Organic Fruits</h1>
+        <h1 class="page-title">Detail Produk</h1>
     </div>
 
     <!--Navigation section-->
     <div class="container">
         <nav class="biolife-nav">
             <ul>
-                <li class="nav-item"><a href="index-2.html" class="permal-link">Home</a></li>
-                <li class="nav-item"><a href="#" class="permal-link">Natural Organic</a></li>
-                <li class="nav-item"><span class="current-page">Fresh Fruit</span></li>
+                <li class="nav-item"><a href="index-2.html" class="permal-link">Beranda</a></li>
+                <li class="nav-item"><a href="#" class="permal-link">Belanja</a></li>
+                <li class="nav-item"><span class="current-page">Detail Produk</span></li>
             </ul>
         </nav>
     </div>
-
     <div class="page-contain single-product">
         <div class="container">
 
@@ -822,21 +727,14 @@
                         </ul>
                     </div>
                     <div class="product-attribute">
-                        <h3 class="title">Organic Sweet Potatoes</h3>
+                        <h3 class="title">Wortel</h3>
                         <div class="rating">
-                            <p class="star-rating"><span class="width-80percent"></span></p>
-                            <span class="review-count">(04 Reviews)</span>
-                            <span class="qa-text">Q&amp;A</span>
-                            <b class="category">By: Natural food</b>
                         </div>
-                        <span class="sku">Sku: #76584HH</span>
-                        <p class="excerpt">Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum porta. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Cras ultricies ligula sed magna dictum porta. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
+                        <p class="excerpt">Sayuran</p>
                         <div class="price">
-                            <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
+                            <ins><span class="price-amount"><span class="currencySymbol">Rp.</span>24.252</span></ins>
                         </div>
                         <div class="shipping-info">
-                            <p class="shipping-day">3-Day Shipping</p>
-                            <p class="for-today">Pree Pickup Today</p>
                         </div>
                     </div>
                     <div class="action-form">
@@ -849,29 +747,16 @@
                             </div>
                         </div>
                         <div class="buttons">
-                            <a href="#" class="btn add-to-cart-btn">add to cart</a>
+                            <a href="#" class="btn add-to-cart-btn">Keranjang</a>
                             <p class="pull-row">
                                 <a href="#" class="btn wishlist-btn">wishlist</a>
                                 <a href="#" class="btn compare-btn">compare</a>
                             </p>
                         </div>
                         <div class="location-shipping-to">
-                            <span class="title">Ship to:</span>
-                            <select name="shipping_to" class="country">
-                                <option value="-1">Select Country</option>
-                                <option value="america">America</option>
-                                <option value="france">France</option>
-                                <option value="germany">Germany</option>
-                                <option value="japan">Japan</option>
-                            </select>
                         </div>
                         <div class="social-media">
                             <ul class="social-list">
-                                <li><a href="#" class="social-link"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#" class="social-link"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#" class="social-link"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                                <li><a href="#" class="social-link"><i class="fa fa-share-alt" aria-hidden="true"></i></a></li>
-                                <li><a href="#" class="social-link"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                         <div class="acepted-payment-methods">
@@ -889,22 +774,15 @@
                 <div class="product-tabs single-layout biolife-tab-contain">
                     <div class="tab-head">
                         <ul class="tabs">
-                            <li class="tab-element active"><a href="#tab_1st" class="tab-link">Products Descriptions</a></li>
-                            <li class="tab-element" ><a href="#tab_2nd" class="tab-link">Addtional information</a></li>
-                            <li class="tab-element" ><a href="#tab_3rd" class="tab-link">Shipping & Delivery</a></li>
-                            <li class="tab-element" ><a href="#tab_4th" class="tab-link">Customer Reviews <sup>(3)</sup></a></li>
+                            <li class="tab-element active"><a href="#tab_1st" class="tab-link">Deskripsi</a></li>
+                            <li class="tab-element" ><a href="#tab_2nd" class="tab-link">Stok</a></li>
                         </ul>
                     </div>
                     <div class="tab-content">
                         <div id="tab_1st" class="tab-contain desc-tab active">
-                            <p class="desc">Quisque quis ipsum venenatis, fermentum ante volutpat, ornare enim. Phasellus molestie risus non aliquet cursus. Integer vestibulum mi lorem, id hendrerit ante lobortis non. Nunc ante ante, lobortis non pretium non, vulputate vel nisi. Maecenas dolor elit, fringilla nec turpis ac, auctor vulputate nulla. Phasellus sed laoreet velit.
-                                Proin fringilla urna vel mattis euismod. Etiam sodales, massa non tincidunt iaculis, mauris libero scelerisque justo, ut rutrum lectus urna sit amet quam. Nulla maximus vestibulum mi vitae accumsan. Donec sit amet ligula et enim semper viverra a in arcu. Vestibulum enim ligula, varius sed enim vitae, posuere molestie velit. Morbi risus orci, congue in nulla at, sodales fermentum magna.</p>
+                            <p class="desc">tes</p>
                             <div class="desc-expand">
-                                <span class="title">Organic Fresh Fruit</span>
                                 <ul class="list">
-                                    <li>100% real fruit ingredients</li>
-                                    <li>100 fresh fruit bags individually wrapped</li>
-                                    <li>Blending Eastern & Western traditions, naturally</li>
                                 </ul>
                             </div>
                         </div>
@@ -1144,8 +1022,8 @@
                 <div class="product-related-box single-layout">
                     <div class="biolife-title-box lg-margin-bottom-26px-im">
                         <span class="biolife-icon icon-organic"></span>
-                        <span class="subtitle">All the best item for You</span>
-                        <h3 class="main-title">Related Products</h3>
+                        <span class="subtitle">semua Produk Terbaik Untuk Anda</span>
+                        <h3 class="main-title">Produk Terkait</h3>
                     </div>
                     <ul class="products-list biolife-carousel nav-center-02 nav-none-on-mobile" data-slick='{"rows":1,"arrows":true,"dots":false,"infinite":false,"speed":400,"slidesMargin":0,"slidesToShow":5, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":20 }},{"breakpoint":768, "settings":{ "slidesToShow": 2, "slidesMargin":10}}]}'>
 
@@ -1157,11 +1035,10 @@
                                     </a>
                                 </div>
                                 <div class="info">
-                                    <b class="categories">Fresh Fruit</b>
-                                    <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
+                                    <b class="categories">Buah</b>
+                                    <h4 class="product-title"><a href="#" class="pr-name">tes</a></h4>
                                     <div class="price">
-                                        <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                        <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                        <ins><span class="price-amount"><span class="currencySymbol">Rp.</span>534.626</span></ins>
                                     </div>
                                     <div class="slide-down-box">
                                         <p class="message">All products are carefully selected to ensure food safety.</p>
@@ -1182,11 +1059,10 @@
                                     </a>
                                 </div>
                                 <div class="info">
-                                    <b class="categories">Fresh Fruit</b>
-                                    <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
+                                    <b class="categories">Buah</b>
+                                    <h4 class="product-title"><a href="#" class="pr-name">Testing</a></h4>
                                     <div class="price">
-                                        <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                        <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                        <ins><span class="price-amount"><span class="currencySymbol">Rp.</span>425.252</span></ins>
                                     </div>
                                     <div class="slide-down-box">
                                         <p class="message">All products are carefully selected to ensure food safety.</p>
@@ -1199,126 +1075,51 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="product-item">
-                            <div class="contain-product layout-default">
-                                <div class="product-thumb">
-                                    <a href="#" class="link-to-product">
-                                        <img src="assets/images/products/p-15.jpg" alt="dd" width="270" height="270" class="product-thumnail">
                                     </a>
                                 </div>
                                 <div class="info">
-                                    <b class="categories">Fresh Fruit</b>
-                                    <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
                                     <div class="price">
-                                        <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                        <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
                                     </div>
-                                    <div class="slide-down-box">
-                                        <p class="message">All products are carefully selected to ensure food safety.</p>
-                                        <div class="buttons">
-                                            <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                            <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                            <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li class="product-item">
-                            <div class="contain-product layout-default">
-                                <div class="product-thumb">
-                                    <a href="#" class="link-to-product">
-                                        <img src="assets/images/products/p-10.jpg" alt="dd" width="270" height="270" class="product-thumnail">
                                     </a>
                                 </div>
                                 <div class="info">
-                                    <b class="categories">Fresh Fruit</b>
-                                    <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
                                     <div class="price">
-                                        <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                        <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
                                     </div>
-                                    <div class="slide-down-box">
-                                        <p class="message">All products are carefully selected to ensure food safety.</p>
-                                        <div class="buttons">
-                                            <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                            <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                            <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li class="product-item">
-                            <div class="contain-product layout-default">
-                                <div class="product-thumb">
-                                    <a href="#" class="link-to-product">
-                                        <img src="assets/images/products/p-08.jpg" alt="dd" width="270" height="270" class="product-thumnail">
                                     </a>
                                 </div>
                                 <div class="info">
-                                    <b class="categories">Fresh Fruit</b>
-                                    <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
                                     <div class="price">
-                                        <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                        <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
                                     </div>
-                                    <div class="slide-down-box">
-                                        <p class="message">All products are carefully selected to ensure food safety.</p>
-                                        <div class="buttons">
-                                            <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                            <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                            <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li class="product-item">
-                            <div class="contain-product layout-default">
-                                <div class="product-thumb">
-                                    <a href="#" class="link-to-product">
-                                        <img src="assets/images/products/p-21.jpg" alt="dd" width="270" height="270" class="product-thumnail">
                                     </a>
                                 </div>
                                 <div class="info">
-                                    <b class="categories">Fresh Fruit</b>
-                                    <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
                                     <div class="price">
-                                        <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                        <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
                                     </div>
-                                    <div class="slide-down-box">
-                                        <p class="message">All products are carefully selected to ensure food safety.</p>
-                                        <div class="buttons">
-                                            <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                            <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                            <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li class="product-item">
-                            <div class="contain-product layout-default">
-                                <div class="product-thumb">
-                                    <a href="#" class="link-to-product">
-                                        <img src="assets/images/products/p-18.jpg" alt="dd" width="270" height="270" class="product-thumnail">
                                     </a>
                                 </div>
                                 <div class="info">
-                                    <b class="categories">Fresh Fruit</b>
-                                    <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
                                     <div class="price">
-                                        <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                        <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
                                     </div>
-                                    <div class="slide-down-box">
-                                        <p class="message">All products are carefully selected to ensure food safety.</p>
-                                        <div class="buttons">
-                                            <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                            <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                            <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -1343,16 +1144,13 @@
                             <div class="footer-phone-info">
                                 <i class="biolife-icon icon-head-phone"></i>
                                 <p class="r-info">
-                                    <span>Got Questions ?</span>
-                                    <span>(700)  9001-1909  (900) 689 -66</span>
+                                    <span>Ada Pertanyaan ?</span>
+                                    <span>0857-2940-4737</span>
                                 </p>
                             </div>
                             <div class="newsletter-block layout-01">
-                                <h4 class="title">Newsletter Signup</h4>
                                 <div class="form-content">
                                     <form action="#" name="new-letter-foter">
-                                        <input type="email" class="input-text email" value="" placeholder="Your email here...">
-                                        <button type="submit" class="bnt-submit" name="ok">Sign up</button>
                                     </form>
                                 </div>
                             </div>
@@ -1360,29 +1158,16 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 md-margin-top-5px sm-margin-top-50px xs-margin-top-40px">
                         <section class="footer-item">
-                            <h3 class="section-title">Useful Links</h3>
                             <div class="row">
                                 <div class="col-lg-6 col-sm-6 col-xs-6">
                                     <div class="wrap-custom-menu vertical-menu-2">
                                         <ul class="menu">
-                                            <li><a href="#">About Us</a></li>
-                                            <li><a href="#">About Our Shop</a></li>
-                                            <li><a href="#">Secure Shopping</a></li>
-                                            <li><a href="#">Delivery infomation</a></li>
-                                            <li><a href="#">Privacy Policy</a></li>
-                                            <li><a href="#">Our Sitemap</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-sm-6 col-xs-6">
                                     <div class="wrap-custom-menu vertical-menu-2">
                                         <ul class="menu">
-                                            <li><a href="#">Who We Are</a></li>
-                                            <li><a href="#">Our Services</a></li>
-                                            <li><a href="#">Projects</a></li>
-                                            <li><a href="#">Contacts Us</a></li>
-                                            <li><a href="#">Innovation</a></li>
-                                            <li><a href="#">Testimonials</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -1391,41 +1176,37 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 md-margin-top-5px sm-margin-top-50px xs-margin-top-40px">
                         <section class="footer-item">
-                            <h3 class="section-title">Transport Offices</h3>
+                            <h3 class="section-title">Layanan Transportasi</h3>
                             <div class="contact-info-block footer-layout xs-padding-top-10px">
                                 <ul class="contact-lines">
                                     <li>
                                         <p class="info-item">
                                             <i class="biolife-icon icon-location"></i>
-                                            <b class="desc">7563 St. Vicent Place, Glasgow, Greater Newyork NH7689, UK </b>
+                                            <b class="desc">Cepu-Blora, Jawa Tengah, Indonesia</b>
                                         </p>
                                     </li>
                                     <li>
                                         <p class="info-item">
                                             <i class="biolife-icon icon-phone"></i>
-                                            <b class="desc">Phone: (+067) 234 789  (+068) 222 888</b>
+                                            <b class="desc">Telepon: 0857-2940-4737</b>
                                         </p>
                                     </li>
                                     <li>
                                         <p class="info-item">
                                             <i class="biolife-icon icon-letter"></i>
-                                            <b class="desc">Email:  contact@company.com</b>
+                                            <b class="desc">Email:  SukaMaju@gmail.com</b>
                                         </p>
                                     </li>
                                     <li>
                                         <p class="info-item">
                                             <i class="biolife-icon icon-clock"></i>
-                                            <b class="desc">Hours: 7 Days a week from 10:00 am</b>
+                                            <b class="desc">Hours: Setiap hari, Mulai Pukul 08.00</b>
                                         </p>
                                     </li>
                                 </ul>
                             </div>
                             <div class="biolife-social inline">
                                 <ul class="socials">
-                                    <li><a href="#" title="twitter" class="socail-btn"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" title="facebook" class="socail-btn"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" title="pinterest" class="socail-btn"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" title="youtube" class="socail-btn"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
                                     <li><a href="#" title="instagram" class="socail-btn"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
@@ -1437,7 +1218,7 @@
                         <div class="separator sm-margin-top-70px xs-margin-top-40px"></div>
                     </div>
                     <div class="col-lg-6 col-sm-6 col-xs-12">
-                       <div class="copy-right-text"><p><a href="templateshub.net">Templates Hub</a></p></div>
+                       <div class="copy-right-text"><p><a href="templateshub.net">Copyright 25.All Rights Reserved</a></p></div>
                     </div>
                     <div class="col-lg-6 col-sm-6 col-xs-12">
                         <div class="payment-methods">

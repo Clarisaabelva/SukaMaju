@@ -315,225 +315,140 @@ session_start();
                 <div id="main-content" class="main-content col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="product-category list-style">
                         <div id="top-functions-area" class="top-functions-area" >
-                            <div class="flt-item to-left group-on-mobile">
-                                <a href="#" class="icon-for-mobile">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </a>
-                                <div class="wrap-selectors">
-                                    <form action="#" name="frm-refine" method="get">
-                                        <span class="title-for-mobile">Refine Products By</span>
-                                            </select>
-                                        </div>
-                                            </select>
-                                        </div>
-                                            </select>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                                        </select>
-                                    </div>
-                                    <div class="selector-item viewmode-selector">
-                                </div>
-                            </div>
                         </div>
 
+                        <?php
+                        include 'admin/koneksi.php';
+
+                        // Tentukan jumlah produk perhalaman
+                        $limit = 6;
+
+                        // Ambil halaman aktif dari URL, default ke halaman 1
+                        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+                        $start = ($page - 1) * $limit;
+
+                        // Ambil keyword pencarian
+                        $search = isset($_GET['s']) ? mysqli_real_escape_string($koneksi, $_GET['s']) : '';
+
+                        // Ambil filter kategori jika ada
+                        $kategori = isset($_GET['kategori']) ? mysqli_real_escape_string($koneksi, $_GET['kategori']) : '';
+
+                        // Buat kondisi WHERE dinamis
+                        $where = [];
+                        if (!empty($search)) {
+                            $where[] = "(p.nm_produk LIKE '%$search%' OR p.ket LIKE '%$search)";
+                        }
+                        if (!empty($kategori)){
+                            $where[] = "p.id_ktg = '$kategori'";
+                        }
+                        $where_sql = !empty($where) ? 'WHERE ' . implode(' AND ', $where) : '';
+
+                        // Hitung total produk
+                        $total_query = "SELECT COUNT(*) AS total FROM tb_produk p $where_sql";
+                        $total_result = mysqli_query($koneksi, $total_query);
+                        $total_row = mysqli_fetch_assoc($total_result);
+                        $total_produk = $total_row['total'];
+                        $total_pages = ceil($total_produk / $limit);
+
+                        // Query ambil data produk
+                        $query = "SELECT p.*, k.nm_ktg FROM tb_produk p
+        JOIN tb_ktg k ON p.id_ktg = k.id_ktg
+        $where_sql
+        ORDER BY p.id_produk ASC
+        LIMIT $start, $limit";
+                      $result = mysqli_query($koneksi, $query);
+                      ?>
                         <div class="row">
                             <ul class="products-list">
-
-                                <li class="product-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="contain-product pr-detail-layout">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-11.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Buah</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">Apel</a></h4>
-                                            <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel maximus lacus. Duis ut mauris eget justo dictum tempus sed vel tellus.</p>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">Rp.</span>85.000</span></ins>
+                                <?php while ($data = mysqli_fetch_assoc($result)) { ?>
+                                    <li class="product-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                       <div class="contain-product pr-detail-layout">
+                                           <div class="product-thumb">
+                                               <a href="detail_produk.php?id=<?php echo $data['id_produk']; ?>" class="link-to-product">
+                                                    <div class="img-wrapper">
+                                                        <img src="admin/produk_img/<?php echo $data['gambar']; ?>" alt="<?php echo $data['nama_produk']; ?> class="square_img">
+                                                    </div>
+                                                </a>
                                             </div>
-                                            <div class="buttons">
-                                                <a href="#" class="btn add-to-cart-btn">Keranjang</a>
+                                            <div class="info">
+                                                <b class="categories"><?php echo $data['nm_ktg']; ?></b>
+                                                <h4 class="product-title"><a href="detail_produk.php?id=<?php echo $data['id_produk']; ?>" class="pr-name"><?php echo $data['nm_produk']; ?></a></h4>
+                                                <p class="excerpt"><?php echo $data['ket']; ?></p>
+                                                <div class="price">
+                                                    <ins><span class="price-amount"><span class="currencySymbol">Rp.</span><?php echo number_format($data['harga'], 0, ',', '.'); ?></span></ins>
+                                                </div>
+                                                <div class="buttons">
+                                                    <a href="detail_produk.php?id=<?php echo $data['id_produk']; ?>" class="btn add-to-cart-btn">Keranjang</a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="advance-info">
-                                            <ul class="list">
-                                                <li>100% Buah Lokal</li>
-                                                <li>Manis Alami, Bukan Sintetis</li>
-                                            </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="contain-product pr-detail-layout">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-13.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Sayuran</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">Sawi</a></h4>
-                                            <p class="excerpt">Sawi Hijau dari petani sayur lokal, Blora</p>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">Rp.</span>3.000</span></ins>
-                                            </div>
-                                            <div class="buttons">
-                                                <a href="#" class="btn add-to-cart-btn">Keranjang</a>
-                                            </div>
-                                        </div>
-                                        <div class="advance-info">
-                                            <ul class="list">
-                                                <li>Segar Dipanen Setiap Hari</li>
-                                                <li>Tanpa Pestisida Berbahaya</li>
-                                            </ul>
+                                            <div class="advance-info">
+                                                <ul class="list">
+                                                    <?php
+                                                    switch (strtolower($data['nm_ktg'])) {
+                                                        case 'sayuran':
+                                                            echo '<li>Segar Dipanen Setiap Hari</li><>Tanpa Pestisida Berbahaya</li>';
+                                                            break;
+                                                        case 'daging sapi':
+                                                            echo '<li>100% Daging Sapi Lokal</li><>Potongan Segar dan Berkualitas</li>';
+                                                            break;
+                                                        case 'ayam':
+                                                            echo '<li>Ayam Potong Segar</li><>Tanpa Suntikan Hormon</li>';
+                                                            break;
+                                                        case 'ikan':
+                                                            echo '<li>Ikan Segar Dari Nelayan Lokal</li><>Tanpa Bahan Pengawet</li>';
+                                                            break;
+                                                        case 'bumbu dapur':
+                                                            echo '<li>Bumbu Dapur Alami</li><>Rempah-rempah Pilihan</li>';
+                                                            break;
+                                                        case 'frozen food':
+                                                            echo '<li>Kualitas Terjaga dengan Pembekuan</li><>Siap Masak, Praktis & Higienis</li>';
+                                                            break;
+                                                        default:
+                                                            echo '<li>100% Buah Lokal</li><>Manis Alami, Bukan Sintetis</li>';
+                                                            break;
+                                                    }
+                                                    ?>
+                                                </ul>
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="product-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="contain-product pr-detail-layout">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-14.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Buah</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">Pisang Cavendish</a></h4>
-                                            <p class="excerpt">Pisang Cavendish, Buah yang harganya murah tapi banyak manfaat</p>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">Rp.</span>45.000</span></ins>
-                                            </div>
-                                            <div class="buttons">
-                                                <a href="#" class="btn add-to-cart-btn">Keranjang</a>
-                                            </div>
-                                        </div>
-                                        <div class="advance-info">
-                                            <ul class="list">
-                                                <li>100% Buah Lokal</li>
-                                                <li>Manis Alami, Bukan Sintesis</li>
-                                            </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="contain-product pr-detail-layout">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-17.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">Organic 10 Assorted Flavors Jelly Beans, 5.5 Oz</a></h4>
-                                            <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel maximus lacus. Duis ut mauris eget justo dictum tempus sed vel tellus.</p>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                            </div>
-                                            <div class="buttons">
-                                                <a href="#" class="btn add-to-cart-btn">add to cart</a>
-                                                <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="advance-info">
-                                            <ul class="list">
-                                                <li>100% real fruit ingredients</li>
-                                                <li>All Sugar comes naturally</li>
-                                                <li>Non-GMO Project Verified</li>
-                                            </ul>
-                                            <div class="shipping-info">
-                                                <p class="shipping-day">3-Day Shipping</p>
-                                                <p class="for-today">Pree Pickup Today</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="contain-product pr-detail-layout">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-08.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">Organic 10 Assorted Flavors Jelly Beans, 5.5 Oz</a></h4>
-                                            <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel maximus lacus. Duis ut mauris eget justo dictum tempus sed vel tellus.</p>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                            </div>
-                                            <div class="buttons">
-                                                <a href="#" class="btn add-to-cart-btn">add to cart</a>
-                                                <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="advance-info">
-                                            <ul class="list">
-                                                <li>100% real fruit ingredients</li>
-                                                <li>All Sugar comes naturally</li>
-                                                <li>Non-GMO Project Verified</li>
-                                            </ul>
-                                            <div class="shipping-info">
-                                                <p class="shipping-day">3-Day Shipping</p>
-                                                <p class="for-today">Pree Pickup Today</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="contain-product pr-detail-layout">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img src="assets/images/products/p-10.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <b class="categories">Fresh Fruit</b>
-                                            <h4 class="product-title"><a href="#" class="pr-name">Organic 10 Assorted Flavors Jelly Beans, 5.5 Oz</a></h4>
-                                            <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel maximus lacus. Duis ut mauris eget justo dictum tempus sed vel tellus.</p>
-                                            <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                            </div>
-                                            <div class="buttons">
-                                                <a href="#" class="btn add-to-cart-btn">add to cart</a>
-                                                <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="advance-info">
-                                            <ul class="list">
-                                                <li>100% real fruit ingredients</li>
-                                                <li>All Sugar comes naturally</li>
-                                                <li>Non-GMO Project Verified</li>
-                                            </ul>
-                                            <div class="shipping-info">
-                                                <p class="shipping-day">3-Day Shipping</p>
-                                                <p class="for-today">Pree Pickup Today</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </div>
 
                         <div class="biolife-panigations-block">
                             <ul class="panigation-contain">
-                                <li><span class="current-page">1</span></li>
-                                <li><a href="#" class="link-page">2</a></li>
-                                <li><a href="#" class="link-page">3</a></li>
-                                <li><span class="sep">....</span></li>
-                                <li><a href="#" class="link-page">20</a></li>
-                                <li><a href="#" class="link-page next"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                                <?php
+                                // Query string untuk mempertahankan search dan kategori
+                                $search_query = !empty($search) ? '$s=' . urlencode($search) : '';
+                                $kategori_query = !empty($kategori) ? '&kategori=' . urlencode($kategori) : '';
+                                $query_string = $search_query . $kategori_query;
+
+                                if ($page > 1) : ?>
+                                    <li>
+                                        <a href="?page=<?php echo $page - 1 . $query_string; ?>" class="link-page prev">
+                                            <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
+
+                                <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
+                                    <li>
+                                        <?php if ($i == $page) : ?>
+                                            <span class="current-page"><?php echo $i; ?></span>
+                                        <?php else : ?>
+                                            <a href="?page=<?php echo $i . $query_string; ?>" class="link-page"><?php echo $i; ?></a></li>
+                                        <?php endif : ?>
+                                    </li>
+                                <?php endfor; ?>
+
+                                <?php if ($page < $total_pages) : ?>
+                                    <li>
+                                        <a href="?page=<?php echo $page + 1 . $query_string; ?>" class="link-page next">
+                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
                             </ul>
                         </div>
 
@@ -552,7 +467,7 @@ session_start();
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-9">
                         <section class="footer-item">
-                            <h1>SukaMaju</h1>
+                            <a href="index.php" class="biolife-logo"><img src="assets/images/favicon.png" alt="biolife logo"><b style="font-size": 190% ; color: black;">SukaMaju"</b></a>
                             <div class="footer-phone-info">
                                 <i class="biolife-icon icon-head-phone"></i>
                                 <p class="r-info">
@@ -560,30 +475,11 @@ session_start();
                                     <span>0857-2940-4737</span>
                                 </p>
                             </div>
-                            <div class="newsletter-block layout-01">
-                                <div class="form-content">
-                                    <form action="#" name="new-letter-foter">
-                                    </form>
-                                </div>
-                            </div>
                         </section>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 md-margin-top-5px sm-margin-top-50px xs-margin-top-40px">
                         <section class="footer-item">
-                            <div class="row">
-                                <div class="col-lg-6 col-sm-6 col-xs-6">
-                                    <div class="wrap-custom-menu vertical-menu-2">
-                                        <ul class="menu">
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-sm-6 col-xs-6">
-                                    <div class="wrap-custom-menu vertical-menu-2">
-                                        <ul class="menu">
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+            
                         </section>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 md-margin-top-5px sm-margin-top-50px xs-margin-top-40px">
@@ -619,7 +515,8 @@ session_start();
                             </div>
                             <div class="biolife-social inline">
                                 <ul class="socials">
-                                    <li><a href="#" title="instagram" class="socail-btn"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://www.instagram.com/clrsbelva._?igsh=aXIyNHB6NnJjNzF0" title="instagram" class="socail-btn"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://www.instagram.com/clrsbelva._?igsh=aXIyNHB6NnJjNzF0" title="instagram" class="socail-btn"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                         </section>
@@ -630,7 +527,9 @@ session_start();
                         <div class="separator sm-margin-top-70px xs-margin-top-40px"></div>
                     </div>
                     <div class="col-lg-6 col-sm-6 col-xs-12">
-                       <div class="copy-right-text"><p><a href="templateshub.net">Copyright 2025. All Rights Reserved</a></p></div>
+                       <div class="copy-right-text">
+                           <p><a href="templateshub.net">&copy; Copyright <strong><span>2025</span></strong>. All Rights Reserved</a></p>
+                        </div>
 
                     </div>
                     <div class="col-lg-6 col-sm-6 col-xs-12">
@@ -713,6 +612,27 @@ session_start();
             </div>
         </div>
     </div>
+
+    <script>
+        function checkout() {
+            if (confirm("Yakin ingin checkout sekarang?")) {
+                fetch('checkout.php', {
+                    method: 'POST'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.massage);
+                    if (data.success) {
+                        window.location.href = "belanja.php";
+                    }
+                })
+                .catch(eror => {
+                    alert("Terjadi kesalahan saat proses checkout.");
+                    console.eror(eror);
+                });
+            }
+        }
+    </script?>
 
     <!-- Scroll Top Button -->
     <a class="btn-scroll-top"><i class="biolife-icon icon-left-arrow"></i></a>

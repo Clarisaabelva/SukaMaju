@@ -172,7 +172,7 @@ if (isset($_POST["login"])) {
                                 <i class="biolife-icon icon-head-phone"></i>
                                 <p class="r-info">
                                     <span>Ada Pertanyaan ?</span>
-                                    <span>0812-1500-8533</span>
+                                    <span>0857-2940-4737</span>
                                 </p>
                             </div>
                         </section>
@@ -196,13 +196,13 @@ if (isset($_POST["login"])) {
                                     <li>
                                         <p class="info-item">
                                             <i class="biolife-icon icon-phone"></i>
-                                            <b class="desc">Telepon: 0812-1500-8533</b>
+                                            <b class="desc">Telepon: 0857-2940-4737</b>
                                         </p>
                                     </li>
                                     <li>
                                         <p class="info-item">
                                             <i class="biolife-icon icon-letter"></i>
-                                            <b class="desc">Email: Freshlyid@gmail.com</b>
+                                            <b class="desc">Email: SukaMaju@gmail.com</b>
                                         </p>
                                     </li>
                                     <li>

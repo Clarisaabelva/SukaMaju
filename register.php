@@ -60,7 +60,7 @@ $data = mysqli_fetch_array($sql);
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-6 d-flex align-items-center">
-                        <a href="register.php" class="biolife-logo"><img src="assets/images/favicon.png" alt="biolife logo"><b style="font-size: 190% ; color: black;">Freshly.id</b></a>
+                        <a href="register.php" class="biolife-logo"><img src="assets/images/favicon.png" alt="biolife logo"><b style="font-size: 190% ; color: black;">SukaMaju</b></a>
                     </div>
                     <div class="col-lg-6 col-md-6 d-none d-md-block text-center">
                         <div class="primary-menu">
@@ -196,7 +196,7 @@ $data = mysqli_fetch_array($sql);
                                     <li>
                                         <p class="info-item">
                                             <i class="biolife-icon icon-letter"></i>
-                                            <b class="desc">Email: clarissabelva4@gmail.com</b>
+                                            <b class="desc">Email: SukaMaju4@gmail.com</b>
                                         </p>
                                     </li>
                                     <li>
@@ -210,7 +210,7 @@ $data = mysqli_fetch_array($sql);
                             <div class="biolife-social inline">
                                 <ul class="socials">
                                     <li><a href="https://www.instagram.com/clrsbelva._?" title="instagram" class="socail-btn"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    <li><a href="https://instagram.com/meaffq/" title="instagram" class="socail-btn"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://www.instagram.com/clrsbelva._?" title="instagram" class="socail-btn"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                         </section>

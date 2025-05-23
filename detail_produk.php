@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Biolife - Organic Food</title>
+    <title>Detail produk - SukaMaju</title>
     <link href="https://fonts.googleapis.com/css?family=Cairo:400,600,700&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400i,700i" rel="stylesheet">
@@ -50,8 +50,8 @@
         <div class="header-middle biolife-sticky-object ">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-2 col-md-6 col-xs-6">
-                        <h1>SukaMaju</h1>
+                    <div class="col-lg-3 col-md-3 col-6 d-flex align-items-center">
+                         <a href="index.php" class="biolife-logo"><img src="assets/images/favicon.png" alt="biolife logo"><b style="font-size: 190% ; color: black;">SukaMaju</b></a>
                     </div>
                     <div class="col-lg-6 col-md-7 hidden-sm hidden-xs">
                         <div class="primary-menu">

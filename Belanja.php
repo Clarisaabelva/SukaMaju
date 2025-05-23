@@ -54,7 +54,7 @@ session_start();
             padding: 10px 15px;
             text-decoration: none;
             color: #333;
-            transition: background 0.25s ease;
+            transition: background 0.2s ease;
         }
 
         .logout-list li a:hover {
@@ -66,17 +66,17 @@ session_start();
             height: 370px;
             overflow: hidden;
             border-radius: 10px;
-            /* optional, blur lebih halus */
+            /* opsional, biar lebih halus */
         }
 
         .square-img {
             width: 100%;
             height: 100%;
-            object-fit: cover:
+            object-fit: cover;
             object-position: center;
             display: block;
         }
-    <style>
+    </style>
 </head>
 
 <body class="biolife-body">
@@ -97,10 +97,8 @@ session_start();
         <div class="header-middle biolife-sticky-object ">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-3 col-6 d-flex align-items-center">
-                        <a href="index.php" class="biolife-logo"><img src="assets/images/favicon.png" alt="biolife logo"><b style="font-size: 190% ; color: black;">SukaMaju</b></a>
+                    <div class="col-lg-3 col-md-3 col-6 d-flex align-items-center"><a href="index.php" class="biolife-logo"><img src="assets/images/favicon.png" alt="biolife logo"><b style="font-size: 190% ; color: black;">SukaMaju</b></a>
                     </div>
-
                     <div class="col-lg-6 col-md-6 d-none d-md-block text-center">
                         <div class="primary-menu">
                             <ul>
@@ -108,7 +106,7 @@ session_start();
                                 <li>
                                     <a href="belanja.php">Belanja</a>
                                 </li>
-                                <li class="menu-item"><a href="contact.html">Hubungi Kami</a></li>
+                                <li class="menu-item"><a href="contact.php">Hubungi Kami</a></li>
                             </ul>
                         </div>
                     </div>
@@ -167,10 +165,10 @@ session_start();
                                                     $user_id = isset($_SESSION['id_user']) ? $_SESSION['id_user'] : null;
 
                                                     if ($user_id) {
-                                                        $query = "SELECT p.*, pr.nm_produk, pr.harga, pr.gambar"
-                    FROM tb_pesanan p 
-                    JOIN tb_produk pr ON p.id_produk = pr.id_produk 
-                    WHERE p.id_user = '$user_id'";
+                                                        $query = "SELECT p.*, pr.nm_produk, pr.harga, pr.gambar 
+                  FROM tb_pesanan p
+                  JOIN tb_produk pr ON p.id_produk = pr.id_produk 
+                  WHERE p.id_user = '$user_id'";
                                                         $result = mysqli_query($koneksi, $query);
                                                         $subtotal = 0;
 
@@ -184,7 +182,7 @@ session_start();
                                                                         <a href="#"><img src="admin/produk_img/<?= $row['gambar'] ?>" width="90" height="90" alt="<?= $row['nm_produk'] ?>"></a>
                                                                     </div>
                                                                     <div class="left-info">
-                                                                        <div class="product-title"><a href="#" class="product-name">?= $row['nm_produk'] ?></a></div>
+                                                                        <div class="product-title"><a href="#" class="product-name"><?= $row['nm_produk'] ?></a></div>
                                                                         <div class="price">
                                                                             <ins><span class="price-amount"><span class="currencySymbol">Rp.</span><?= number_format($row['harga'], 0, ',', '.') ?></span></ins>
                                                                         </div>
@@ -219,17 +217,17 @@ session_start();
                                     <a class="dropdown-toggle d-flex align-items-center link-to" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <span class="icon-qty-combine">
                                             <i class="fas fa-user biolife-icon"></i>
-                                            <span class="qty"><?= htmlspecialchars($_SESSION['username']); ?></span> <!-- Ganti qty jadi username --> 
+                                            <span class="qty"><?= htmlspecialchars($_SESSION['username']); ?></span> <!-- Ganti qty jadi username -->
                                         </span>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledbye="userDropdown">
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                         <ul class="logout-list">
                                             <li><a href="logout.php">Logout</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             <?php else : ?>
-                                <!-- Login Button (show if not logged in) --> 
+                                <!-- Login Button (shown if not logged in) -->
                                 <div class="login-button">
                                     <a href="login.php" class="btn btn-sm btn-outline-primary">Login</a>
                                 </div>
@@ -266,8 +264,8 @@ session_start();
                                     include "admin/koneksi.php";
                                     $kategori_result = mysqli_query($koneksi, "SELECT * FROM tb_ktg ORDER BY nm_ktg ASC");
                                     while ($kategori = mysqli_fetch_assoc($kategori_result)) {
-                                        $selected = (isset($_GET['kategori'])) && $_GET['kategori'] == $kategori['id_ktg']) ? 'style="font-weight:bold"' : '';
-                                        echo '<li class="menu-item"><a href="?kategori=' . $kategori['id_ktg'] . '" class="menu-tittle" ' . $selected . '>' . $kategori['nm_ktg'] . '</a></li>';
+                                        $selected = (isset($_GET['kategori']) && $_GET['kategori'] == $kategori['id_ktg']) ? 'style="font-weight:bold;"' : '';
+                                        echo '<li class="menu-item"><a href="?kategori=' . $kategori['id_ktg'] . '" class="menu-title" ' . $selected . '>' . $kategori['nm_ktg'] . '</a></li>';
                                     }
                                     ?>
                                 </ul>
@@ -277,21 +275,20 @@ session_start();
                     </div>
                     <div class="col-lg-9 col-md-8 padding-top-2px">
                         <div class="header-search-bar layout-01">
-                            <form action="" class="form-search" name="desktop-seacrh" method="get">
+                            <form action="" class="form-search" name="desktop-search" method="get">
                                 <input type="text" name="s" class="input-text" value="<?php echo isset($_GET['s']) ? htmlspecialchars($_GET['s']) : ''; ?>" placeholder="Search here...">
                                 <button type="submit" class="btn-submit"><i class="biolife-icon icon-search"></i></button>
                             </form>
                         </div>
                         <div class="live-info">
                             <p class="telephone"><i class="fa fa-phone" aria-hidden="true"></i><b class="phone-number">085729404737</b></p>
-                            <p class="working-time">sen-jum: 8:30am-7:30pm; Sab-Min: 9:30am-4:30pm</p>
+                            <p class="working-time">Sen-Jum: 8:30am-7:30pm; Sab-Min: 9:30am-4:30pm</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
     <!--Hero Section-->
     <div class="hero-section hero-background">
         <h1 class="page-title">Belanja</h1>
@@ -301,7 +298,7 @@ session_start();
     <div class="container">
         <nav class="biolife-nav">
             <ul>
-                <li class="nav-item"><a href="index-2.html" class="permal-link">Beranda</a></li>
+                <li class="nav-item"><a href="index.php" class="permal-link">Beranda</a></li>
                 <li class="nav-item"><span class="current-page">Belanja</span></li>
             </ul>
         </nav>
@@ -314,13 +311,13 @@ session_start();
                 <!-- Main content -->
                 <div id="main-content" class="main-content col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="product-category list-style">
-                        <div id="top-functions-area" class="top-functions-area" >
+                        <div id="top-functions-area" class="top-functions-area">
                         </div>
 
                         <?php
                         include 'admin/koneksi.php';
 
-                        // Tentukan jumlah produk perhalaman
+                        // Tentukan jumlah produk per halaman
                         $limit = 6;
 
                         // Ambil halaman aktif dari URL, default ke halaman 1
@@ -336,9 +333,9 @@ session_start();
                         // Buat kondisi WHERE dinamis
                         $where = [];
                         if (!empty($search)) {
-                            $where[] = "(p.nm_produk LIKE '%$search%' OR p.ket LIKE '%$search)";
+                            $where[] = "(p.nm_produk LIKE '%$search%' OR p.ket LIKE '%$search%')";
                         }
-                        if (!empty($kategori)){
+                        if (!empty($kategori)) {
                             $where[] = "p.id_ktg = '$kategori'";
                         }
                         $where_sql = !empty($where) ? 'WHERE ' . implode(' AND ', $where) : '';
@@ -351,22 +348,23 @@ session_start();
                         $total_pages = ceil($total_produk / $limit);
 
                         // Query ambil data produk
-                        $query = "SELECT p.*, k.nm_ktg FROM tb_produk p
-        JOIN tb_ktg k ON p.id_ktg = k.id_ktg
-        $where_sql
-        ORDER BY p.id_produk ASC
-        LIMIT $start, $limit";
-                      $result = mysqli_query($koneksi, $query);
-                      ?>
+                        $query = "SELECT p.*, k.nm_ktg FROM tb_produk p 
+          JOIN tb_ktg k ON p.id_ktg = k.id_ktg 
+          $where_sql 
+          ORDER BY p.id_produk ASC 
+          LIMIT $start, $limit";
+                        $result = mysqli_query($koneksi, $query);
+                        ?>
+
                         <div class="row">
                             <ul class="products-list">
                                 <?php while ($data = mysqli_fetch_assoc($result)) { ?>
                                     <li class="product-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                       <div class="contain-product pr-detail-layout">
-                                           <div class="product-thumb">
-                                               <a href="detail_produk.php?id=<?php echo $data['id_produk']; ?>" class="link-to-product">
+                                        <div class="contain-product pr-detail-layout">
+                                            <div class="product-thumb">
+                                                <a href="detail_produk.php?id=<?php echo $data['id_produk']; ?>" class="link-to-product">
                                                     <div class="img-wrapper">
-                                                        <img src="admin/produk_img/<?php echo $data['gambar']; ?>" alt="<?php echo $data['nama_produk']; ?> class="square_img">
+                                                        <img src="admin/produk_img/<?php echo $data['gambar']; ?>" alt="<?php echo $data['nama_produk']; ?>" class="square-img">
                                                     </div>
                                                 </a>
                                             </div>
@@ -386,25 +384,25 @@ session_start();
                                                     <?php
                                                     switch (strtolower($data['nm_ktg'])) {
                                                         case 'sayuran':
-                                                            echo '<li>Segar Dipanen Setiap Hari</li><>Tanpa Pestisida Berbahaya</li>';
+                                                            echo '<li>Segar Dipanen Setiap Hari</li><li>Tanpa Pestisida Berbahaya</li>';
                                                             break;
                                                         case 'daging sapi':
-                                                            echo '<li>100% Daging Sapi Lokal</li><>Potongan Segar dan Berkualitas</li>';
+                                                            echo '<li>100% Daging Sapi Lokal</li><li>Potongan Segar dan Berkualitas</li>';
                                                             break;
                                                         case 'ayam':
-                                                            echo '<li>Ayam Potong Segar</li><>Tanpa Suntikan Hormon</li>';
+                                                            echo '<li>Ayam Potong Segar</li><li>Tanpa Suntikan Hormon</li>';
                                                             break;
                                                         case 'ikan':
-                                                            echo '<li>Ikan Segar Dari Nelayan Lokal</li><>Tanpa Bahan Pengawet</li>';
+                                                            echo '<li>Ikan Segar dari Nelayan Lokal</li><li>Tanpa Bahan Pengawet</li>';
                                                             break;
                                                         case 'bumbu dapur':
-                                                            echo '<li>Bumbu Dapur Alami</li><>Rempah-rempah Pilihan</li>';
+                                                            echo '<li>Bumbu Dapur Alami</li><li>Rempah-rempah Pilihan</li>';
                                                             break;
                                                         case 'frozen food':
-                                                            echo '<li>Kualitas Terjaga dengan Pembekuan</li><>Siap Masak, Praktis & Higienis</li>';
+                                                            echo '<li>Kualitas Terjaga dengan Pembekuan</li><li>Siap Masak, Praktis & Higienis</li>';
                                                             break;
                                                         default:
-                                                            echo '<li>100% Buah Lokal</li><>Manis Alami, Bukan Sintetis</li>';
+                                                            echo '<li>100% Buah Lokal</li><li>Manis Alami, Bukan Sintetis</li>';
                                                             break;
                                                     }
                                                     ?>
@@ -420,7 +418,7 @@ session_start();
                             <ul class="panigation-contain">
                                 <?php
                                 // Query string untuk mempertahankan search dan kategori
-                                $search_query = !empty($search) ? '$s=' . urlencode($search) : '';
+                                $search_query = !empty($search) ? '&s=' . urlencode($search) : '';
                                 $kategori_query = !empty($kategori) ? '&kategori=' . urlencode($kategori) : '';
                                 $query_string = $search_query . $kategori_query;
 
@@ -437,8 +435,8 @@ session_start();
                                         <?php if ($i == $page) : ?>
                                             <span class="current-page"><?php echo $i; ?></span>
                                         <?php else : ?>
-                                            <a href="?page=<?php echo $i . $query_string; ?>" class="link-page"><?php echo $i; ?></a></li>
-                                        <?php endif : ?>
+                                            <a href="?page=<?php echo $i . $query_string; ?>" class="link-page"><?php echo $i; ?></a>
+                                        <?php endif; ?>
                                     </li>
                                 <?php endfor; ?>
 
@@ -467,7 +465,7 @@ session_start();
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-9">
                         <section class="footer-item">
-                            <a href="index.php" class="biolife-logo"><img src="assets/images/favicon.png" alt="biolife logo"><b style="font-size": 190% ; color: black;">SukaMaju"</b></a>
+                            <a href="index.php" class="biolife-logo"><img src="assets/images/favicon.png" alt="biolife logo"><b style="font-size: 190% ; color: black;">SukaMaju</b></a>
                             <div class="footer-phone-info">
                                 <i class="biolife-icon icon-head-phone"></i>
                                 <p class="r-info">
@@ -479,7 +477,7 @@ session_start();
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 md-margin-top-5px sm-margin-top-50px xs-margin-top-40px">
                         <section class="footer-item">
-            
+
                         </section>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 md-margin-top-5px sm-margin-top-50px xs-margin-top-40px">
@@ -496,13 +494,13 @@ session_start();
                                     <li>
                                         <p class="info-item">
                                             <i class="biolife-icon icon-phone"></i>
-                                            <b class="desc">Telepon: 085729404737</b>
+                                            <b class="desc">Telepon: 0857-2940-4737</b>
                                         </p>
                                     </li>
                                     <li>
                                         <p class="info-item">
                                             <i class="biolife-icon icon-letter"></i>
-                                            <b class="desc">Email: Clarissabelva4@gmail.com</b>
+                                            <b class="desc">Email: SukaMaju@gmail.com</b>
                                         </p>
                                     </li>
                                     <li>
@@ -515,8 +513,8 @@ session_start();
                             </div>
                             <div class="biolife-social inline">
                                 <ul class="socials">
-                                    <li><a href="https://www.instagram.com/clrsbelva._?igsh=aXIyNHB6NnJjNzF0" title="instagram" class="socail-btn"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    <li><a href="https://www.instagram.com/clrsbelva._?igsh=aXIyNHB6NnJjNzF0" title="instagram" class="socail-btn"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://www.instagram.com/clrsbelva._?" title="instagram" class="socail-btn"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://www.instagram.com/clrsbelva._?" title="instagram" class="socail-btn"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                         </section>
@@ -527,8 +525,8 @@ session_start();
                         <div class="separator sm-margin-top-70px xs-margin-top-40px"></div>
                     </div>
                     <div class="col-lg-6 col-sm-6 col-xs-12">
-                       <div class="copy-right-text">
-                           <p><a href="templateshub.net">&copy; Copyright <strong><span>2025</span></strong>. All Rights Reserved</a></p>
+                        <div class="copy-right-text">
+                            <p><a href="templateshub.net">&copy; Copyright <strong><span>2025</span></strong>. All Rights Reserved</a></p>
                         </div>
 
                     </div>
@@ -617,19 +615,19 @@ session_start();
         function checkout() {
             if (confirm("Yakin ingin checkout sekarang?")) {
                 fetch('checkout.php', {
-                    method: 'POST'
-                })
-                .then(response => response.json())
-                .then(data => {
-                    alert(data.massage);
-                    if (data.success) {
-                        window.location.href = "belanja.php";
-                    }
-                })
-                .catch(eror => {
-                    alert("Terjadi kesalahan saat proses checkout.");
-                    console.eror(eror);
-                });
+                        method: 'POST'
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert(data.message);
+                        if (data.success) {
+                            window.location.href = "belanja.php";
+                        }
+                    })
+                    .catch(error => {
+                        alert("Terjadi kesalahan saat proses checkout.");
+                        console.error(error);
+                    });
             }
         }
     </script>

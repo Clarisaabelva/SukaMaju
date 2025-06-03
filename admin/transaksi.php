@@ -4,17 +4,17 @@ include "koneksi.php";
 
 // Cek apakah sudah login
 if (!isset($_SESSION["login"])) {
-  header("Location: login.php");
-  exit;
+    header("Location: login.php");
+    exit;
 }
 
 // Cek apakah status tersedia dan pastikan user adalah admin
 if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
-  echo "<script>
+    echo "<script>
     alert('Akses ditolak! Halaman ini hanya untuk Admin.');
     window.location.href='login.php';
   </script>";
-  exit;
+    exit;
 }
 ?>
 
@@ -66,6 +66,8 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
 
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
+
+                <li class="nav-item dropdown">
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
@@ -77,10 +79,6 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                             <h6><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Guest'; ?></h6>
                             <span>Admin</span>
                         </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
                         <li>
                             <a class="dropdown-item d-flex align-items-center" href="logout.php">
                                 <i class="bi bi-box-arrow-right"></i>
@@ -130,7 +128,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
             </li><!-- End Keranjang Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link " href="transaksi.php">
+                <a class="nav-link" href="transaksi.php">
                     <i class="bi bi-credit-card"></i>
                     <span>Transaksi</span>
                 </a>
@@ -155,106 +153,115 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Detail Jual</h1>
+            <h1>Transaksi</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
-                    <li class="breadcrumb-item">Transaksi</li>
-                    <li class="breadcrumb-item active">Detail Jual</li>
+                    <li class="breadcrumb-item active">Transaksi</li>
                 </ol>
             </nav>
-        </div>
-        <!-- End Page Title -->
+        </div><!-- End Page Title -->
 
-        <section class="section">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Lihat Detail Transaksi</h5>
-                            <div class="table-responsive">
-                                <?php
-                                include 'koneksi.php'; // pastikan koneksi DB kamu benar
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <?php
+                        // Sertakan file koneksi
+                        include 'koneksi.php';
 
-                                $id_jual = $_GET['id']; // misalnya dari URL atau request
+                        // Ambil kategori dari database untuk dropdown filter
+                        $sql_kategori = "SELECT id_ktg, nm_ktg FROM tb_ktg";
+                        $result_kategori = $koneksi->query($sql_kategori);
 
-                                // ambil data tb_jual
-                                $jual = mysqli_fetch_assoc(mysqli_query($koneksi, "
-    SELECT * FROM tb_jual tj 
-    JOIN tb_user tu ON tj.id_user = tu.id_user 
-    WHERE tj.id_jual = '$id_jual'
-"));
+                        // Ambil kategori yang dipilih dari URL (jika ada)
+                        $kategori_filter = isset($_GET['kategori']) ? $_GET['kategori'] : "";
 
-                                // ambil data detail jual
-                                $detail = mysqli_query($koneksi, "
-    SELECT tjd.id_produk, tjd.qty, tjd.harga AS subtotal, tp.nm_produk, tp.harga AS harga_produk
-    FROM tb_jualdtl tjd 
-    JOIN tb_produk tp ON tjd.id_produk = tp.id_produk 
-    WHERE tjd.id_jual = '$id_jual'
-");
-                                ?>
+                        // Query untuk mengambil data penjualan dengan filter kategori jika ada
+                        $sql = "SELECT j.id_jual, u.username, j.tgl_jual, j.total, j.diskon 
+        FROM tb_jual j 
+        JOIN tb_user u ON j.id_user = u.id_user";
 
-                                <table class="table table-striped mt-2">
-                                    <tbody>
-                                        <tr>
-                                            <th>Kode Belanja</th>
-                                            <td><?= $jual['id_jual'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Pengguna</th>
-                                            <td><?= $jual['username'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Tanggal</th>
-                                            <td><?= date('d-m-Y H:i:s', strtotime($jual['tgl_jual'])) ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Total Bayar</th>
-                                            <td>Rp <?= number_format($jual['total'], 0, ',', '.') ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Diskon</th>
-                                            <td>Rp <?= number_format($jual['diskon'], 0, ',', '.') ?></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        if (!empty($kategori_filter)) {
+                            // Jika kategori dipilih, filter berdasarkan kategori yang terkait dengan produk dalam tb_jualdtl
+                            $sql .= " JOIN tb_jualdtl jd ON j.id_jual = jd.id_jual
+              JOIN tb_produk p ON jd.id_produk = p.id_produk
+              WHERE p.id_ktg = '$kategori_filter'";
+                        }
 
-                                <h5>Detail Pembelian:</h5>
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nama Produk</th>
-                                            <th>Harga</th>
-                                            <th>Qty</th>
-                                            <th>Subtotal</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        $no = 1;
-                                        while ($d = mysqli_fetch_assoc($detail)) :
-                                        ?>
-                                            <tr>
-                                                <td><?= $no++ ?></td>
-                                                <td><?= $d['nm_produk'] ?></td>
-                                                <td>Rp <?= number_format($d['harga_produk'], 0, ',', '.') ?></td>
-                                                <td><?= $d['qty'] ?></td>
-                                                <td>Rp <?= number_format($d['subtotal'], 0, ',', '.') ?></td>
-                                            </tr>
-                                        <?php endwhile; ?>
-                                    </tbody>
-                                </table>
-
-                            </div>
-                            <a href="transaksi.php" class="btn btn-secondary">Kembali</a>
-                        </div>
+                        $sql .= " GROUP BY j.id_jual ORDER BY j.tgl_jual ASC"; // Mengelompokkan dan mengurutkan berdasarkan tanggal terbaru
+                        $result = $koneksi->query($sql);
+                        ?>
+                        <div class="filter-bar mt-3">
+                            <form class="filter-form d-flex align-items-center" method="GET" action="">
+                                <select name="kategori" class="form-select me-2" style="max-width: 200px;" title="Pilih kategori">
+                                    <option value="">-- Semua Kategori --</option>
+                                    <?php
+                                    if ($result_kategori->num_rows > 0) {
+                                        while ($row = $result_kategori->fetch_assoc()) {
+                                            $selected = ($kategori_filter == $row['id_ktg']) ? "selected" : "";
+                                            echo "<option value='" . $row['id_ktg'] . "' $selected>" . htmlspecialchars($row['nm_ktg']) . "</option>";
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                                <button type="submit" class="btn btn-primary ms-2">Filter</button>
+                            </form>
+                        </div><!-- End Filter Bar -->
                     </div>
                 </div>
             </div>
+        </div><!-- End Filter Bar -->
+
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Table with stripped rows -->
+                            <table class="table table-striped mt-2">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Kode Belanja</th>
+                                        <th>Pengguna</th>
+                                        <th>Tanggal</th>
+                                        <th>Total Bayar</th>
+                                        <th>Diskon</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $no = 1;
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo "<tr>";
+                                            echo "<td>" . $no++ . "</td>";
+                                            echo "<td>" . $row["id_jual"] . "</td>";
+                                            echo "<td>" . $row["username"] . "</td>";
+                                            echo "<td>" . date("d-m-Y H:i:s", strtotime($row["tgl_jual"])) . "</td>";
+                                            echo "<td>Rp " . number_format($row["total"], 0, ",", ".") . "</td>";
+                                            echo "<td>Rp " . number_format($row["diskon"], 0, ",", ".") . "</td>";
+                                            echo "<td>
+                                            <a href='detail_jual.php?id=" . $row["id_jual"] . "' class='btn btn-info btn-sm'>Detail</a>
+                                          </td>";
+                                            echo "</tr>";
+                                        }
+                                    } else {
+                                        echo "<tr><td colspan='7' class='text-center'>Belum ada data penjualan</td></tr>";
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                            <!-- End Table with stripped rows -->
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </section>
-
-
 
     </main><!-- End #main -->
 

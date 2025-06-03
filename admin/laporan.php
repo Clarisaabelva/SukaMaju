@@ -4,17 +4,17 @@ include "koneksi.php";
 
 // Cek apakah sudah login
 if (!isset($_SESSION["login"])) {
-  header("Location: login.php");
-  exit;
+    header("Location: login.php");
+    exit;
 }
 
 // Cek apakah status tersedia dan pastikan user adalah admin
 if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
-  echo "<script>
+    echo "<script>
     alert('Akses ditolak! Halaman ini hanya untuk Admin.');
     window.location.href='login.php';
   </script>";
-  exit;
+    exit;
 }
 ?>
 
@@ -25,7 +25,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Transaksi - SukaMaju Admin</title>
+    <title>Laporan - SukaMaju Admin</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -130,14 +130,14 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
             </li><!-- End Keranjang Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link " href="transaksi.php">
+                <a class="nav-link collapsed" href="transaksi.php">
                     <i class="bi bi-credit-card"></i>
                     <span>Transaksi</span>
                 </a>
             </li><!-- End Transaksi Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="laporan.php">
+                <a class="nav-link" href="laporan.php">
                     <i class="bi bi-journal-check"></i>
                     <span>Laporan</span>
                 </a>
@@ -155,106 +155,121 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Detail Jual</h1>
+            <h1>Laporan</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
-                    <li class="breadcrumb-item">Transaksi</li>
-                    <li class="breadcrumb-item active">Detail Jual</li>
+                    <li class="breadcrumb-item active">Laporan</li>
                 </ol>
             </nav>
         </div>
         <!-- End Page Title -->
 
+        <?php
+        include "koneksi.php";
+
+        if ($koneksi->connect_error) {
+            die("Koneksi gagal: " . $koneksi->connect_error);
+        }
+
+        $sqlKategori = "SELECT id_ktg, nm_ktg FROM tb_ktg";
+        $resultKategori = $koneksi->query($sqlKategori);
+
+        $sqlTransaksi = "SELECT COUNT(*) as total FROM tb_jual";
+        $resultTransaksi = $koneksi->query($sqlTransaksi);
+        $dataTransaksi = $resultTransaksi->fetch_assoc();
+        $adaTransaksi = ($dataTransaksi['total'] > 0);
+
+        $koneksi->close();
+        ?>
+
         <section class="section">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Lihat Detail Transaksi</h5>
-                            <div class="table-responsive">
-                                <?php
-                                include 'koneksi.php'; // pastikan koneksi DB kamu benar
+                            <h5 class="card-title">Cetak Laporan</h5>
 
-                                $id_jual = $_GET['id']; // misalnya dari URL atau request
-
-                                // ambil data tb_jual
-                                $jual = mysqli_fetch_assoc(mysqli_query($koneksi, "
-    SELECT * FROM tb_jual tj 
-    JOIN tb_user tu ON tj.id_user = tu.id_user 
-    WHERE tj.id_jual = '$id_jual'
-"));
-
-                                // ambil data detail jual
-                                $detail = mysqli_query($koneksi, "
-    SELECT tjd.id_produk, tjd.qty, tjd.harga AS subtotal, tp.nm_produk, tp.harga AS harga_produk
-    FROM tb_jualdtl tjd 
-    JOIN tb_produk tp ON tjd.id_produk = tp.id_produk 
-    WHERE tjd.id_jual = '$id_jual'
-");
-                                ?>
-
-                                <table class="table table-striped mt-2">
-                                    <tbody>
-                                        <tr>
-                                            <th>Kode Belanja</th>
-                                            <td><?= $jual['id_jual'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Pengguna</th>
-                                            <td><?= $jual['username'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Tanggal</th>
-                                            <td><?= date('d-m-Y H:i:s', strtotime($jual['tgl_jual'])) ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Total Bayar</th>
-                                            <td>Rp <?= number_format($jual['total'], 0, ',', '.') ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Diskon</th>
-                                            <td>Rp <?= number_format($jual['diskon'], 0, ',', '.') ?></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                                <h5>Detail Pembelian:</h5>
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nama Produk</th>
-                                            <th>Harga</th>
-                                            <th>Qty</th>
-                                            <th>Subtotal</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        $no = 1;
-                                        while ($d = mysqli_fetch_assoc($detail)) :
-                                        ?>
-                                            <tr>
-                                                <td><?= $no++ ?></td>
-                                                <td><?= $d['nm_produk'] ?></td>
-                                                <td>Rp <?= number_format($d['harga_produk'], 0, ',', '.') ?></td>
-                                                <td><?= $d['qty'] ?></td>
-                                                <td>Rp <?= number_format($d['subtotal'], 0, ',', '.') ?></td>
-                                            </tr>
-                                        <?php endwhile; ?>
-                                    </tbody>
-                                </table>
-
+                            <!-- Pilih Laporan -->
+                            <div class="mb-3">
+                                <label class="form-label">Pilih Laporan</label>
+                                <select id="laporanSelect" class="form-select" onchange="updateTipeLaporan()">
+                                    <option value="" selected disabled>Pilih Laporan</option>
+                                    <option value="produk">Produk</option>
+                                    <option value="transaksi">Transaksi</option>
+                                </select>
                             </div>
-                            <a href="transaksi.php" class="btn btn-secondary">Kembali</a>
+
+                            <!-- Pilih Tipe Laporan -->
+                            <div class="mb-3">
+                                <label class="form-label">Pilih Tipe Laporan</label>
+                                <select id="tipeLaporanSelect" class="form-select">
+                                    <option value="" selected disabled>Pilih Tipe Laporan</option>
+                                </select>
+                            </div>
+
+                            <button id="btnCetak" class="btn btn-primary">Cetak PDF</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <script>
+            function updateTipeLaporan() {
+                const laporanSelect = document.getElementById("laporanSelect").value;
+                const tipeLaporanSelect = document.getElementById("tipeLaporanSelect");
 
+                tipeLaporanSelect.innerHTML = "";
+
+                if (laporanSelect === "produk") {
+                    let optionAll = document.createElement("option");
+                    optionAll.value = "all";
+                    optionAll.textContent = "All";
+                    tipeLaporanSelect.appendChild(optionAll);
+
+                    <?php if ($resultKategori->num_rows > 0) : ?>
+                        <?php while ($row = $resultKategori->fetch_assoc()) : ?>
+                            let option<?php echo $row['id_ktg']; ?> = document.createElement("option");
+                            option<?php echo $row['id_ktg']; ?>.value = "<?php echo $row['id_ktg']; ?>";
+                            option<?php echo $row['id_ktg']; ?>.textContent = "<?php echo $row['nm_ktg']; ?>";
+                            tipeLaporanSelect.appendChild(option<?php echo $row['id_ktg']; ?>);
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+
+                } else if (laporanSelect === "transaksi") {
+                    let optionAll = document.createElement("option");
+                    optionAll.value = "all";
+                    optionAll.textContent = "All";
+                    tipeLaporanSelect.appendChild(optionAll);
+                }
+            }
+
+            document.getElementById("btnCetak").addEventListener("click", function() {
+                const laporan = document.getElementById("laporanSelect").value;
+                const tipe = document.getElementById("tipeLaporanSelect").value;
+
+                if (!laporan || !tipe) {
+                    alert("Silakan pilih jenis laporan dan tipe laporan terlebih dahulu.");
+                    return;
+                }
+
+                let url = "";
+
+                if (laporan === "produk") {
+                    if (tipe === "all") {
+                        url = "pdf_produk_all.php";
+                    } else {
+                        url = "pdf_produk_kategori.php?id_kategori=" + tipe;
+                    }
+                } else if (laporan === "transaksi") {
+                    url = "pdf_transaksi.php";
+                }
+
+                // Buka file PDF di tab baru
+                window.open(url, "_blank");
+            });
+        </script>
 
     </main><!-- End #main -->
 

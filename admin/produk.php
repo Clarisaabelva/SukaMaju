@@ -69,7 +69,7 @@
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6>Clarisa Belva</h6>
+                            <h6>Belva</h6>
                             <span>Admin</span>
                         </li>
                         <li>

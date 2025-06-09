@@ -49,7 +49,7 @@ if (isset($_POST['simpan'])) {
         move_uploaded_file($tmp_file, $dir . $imgnewfile);
 
         // Simpan data ke database
-        $query = mysqli_query($koneksi, "INSERT INTO tb_produk (id_produk, nm_produk, harga, stok, desk, id_kategori, gambar) 
+        $query = mysqli_query($koneksi, "INSERT INTO tb_produk (id_produk, nm_produk, harga, stok, desk, id_ktg, gambar) 
                                          VALUES ('$id_produk', '$nm_produk', '$harga', '$stok', '$desk', '$id_kategori', '$imgnewfile')");
 
         if ($query) {
@@ -233,9 +233,9 @@ if (isset($_POST['simpan'])) {
                                         <option value="">-- Pilih Kategori --</option>
                                         <?php
                                         include "koneksi.php";
-                                        $query = mysqli_query($koneksi, "SELECT * FROM tb_kategori");
+                                        $query = mysqli_query($koneksi, "SELECT * FROM tb_ktg");
                                         while ($kategori = mysqli_fetch_array($query)) {
-                                            echo "<option value='{$kategori['id_kategori']}'>{$kategori['nm_kategori']}</option>";
+                                            echo "<option value='{$kategori['id_ktg']}'>{$kategori['nm_ktg']}</option>";
                                         }
                                         ?>
                                     </select>

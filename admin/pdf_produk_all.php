@@ -18,7 +18,7 @@ function query($query)
 
 // Query dengan JOIN antara tb_produk dan tb_kategori
 $data = query("SELECT tb_produk.id_produk, tb_produk.nm_produk, tb_produk.harga, tb_produk.stok, 
-                      tb_produk.ket, tb_produk.gambar, tb_ktg.nm_ktg
+                      tb_produk.desk, tb_produk.gambar, tb_ktg.nm_ktg
                FROM tb_produk 
                JOIN tb_ktg ON tb_produk.id_ktg = tb_ktg.id_ktg");
 
@@ -66,7 +66,7 @@ $html = '<html>
 </head>
 <body>
 
-<h1 align="center">Freshly.id</h1>
+<h1 align="center">SukaMaju</h1>
 <hr>
 <h1 align="center">LAPORAN DATA PRODUK</h1>
 

@@ -60,7 +60,7 @@ if (isset($_POST['update'])) {
     }
 
     // Update data ke database
-    $query = mysqli_query($koneksi, "UPDATE tb_produk SET nm_produk='$nm_produk', harga='$harga', stok='$stok', desk='$desk', id_kategori='$id_kategori', gambar='$imgnewfile' WHERE id_produk='$id_produk'");
+    $query = mysqli_query($koneksi, "UPDATE tb_produk SET nm_produk='$nm_produk', harga='$harga', stok='$stok', desk='$desk', id_ktg='$id_kategori', gambar='$imgnewfile' WHERE id_produk='$id_produk'");
 
     if ($query) {
         echo "<script>alert('Produk berhasil diperbarui!');</script>";
@@ -241,10 +241,10 @@ if (isset($_POST['update'])) {
                                     <select class="form-control" id="id_kategori" name="id_kategori" required>
                                         <option value="">-- Pilih Kategori --</option>
                                         <?php
-                                        $query_kategori = mysqli_query($koneksi, "SELECT * FROM tb_kategori");
+                                        $query_kategori = mysqli_query($koneksi, "SELECT * FROM tb_ktg");
                                         while ($kategori = mysqli_fetch_array($query_kategori)) {
-                                            $selected = ($kategori['id_kategori'] == $data['id_kategori']) ? 'selected' : '';
-                                            echo "<option value='{$kategori['id_kategori']}' $selected>{$kategori['nm_kategori']}</option>";
+                                            $selected = ($kategori['id_ktg'] == $data['id_ktg']) ? 'selected' : '';
+                                            echo "<option value='{$kategori['id_ktg']}' $selected>{$kategori['nm_ktg']}</option>";
                                         }
                                         ?>
                                     </select>

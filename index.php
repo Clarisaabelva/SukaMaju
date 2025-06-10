@@ -251,9 +251,9 @@ session_start();
                                 </div>
                             </div>
                             <div class="text-content">
-                                <i class="first-line">Delima</i>
-                                <h3 class="second-line">Sayuran 100% Organik</h3>
-                                <p class="third-line">Campuran buah apel hijau segar dan buah perasan</p>
+                                <i class="first-line">Smoothie</i>
+                                <h3 class="second-line">Buah 100% Organik</h3>
+                                <p class="third-line">Campuran buah Strawberry segar dan buah perasan</p>
                                 <p class="buttons">
                                     <a href="belanja.php" class="btn btn-bold">Belanja Yuk!</a>
                                 </p>
@@ -291,8 +291,33 @@ session_start();
                                         </a>
                                     </div>
                                     <div class="text-content">
-                                        <b class="first-line">Delima</b>
-                                        <span class="second-line">Buatan Surga Organik</span>
+                                        <b class="first-line">Smoothie</b>
+                                        <span class="second-line">Buatan Buah Organik</span>
+                                        <span class="third-line">Mudah <i>Hidup Sehat, Bahagia</i></span>
+                                        <div class="product-detail">
+                                            <h4 class="product-name">Produksi Buah Segar Nasional</h4>
+                                            <div class="price price-contain">
+                                                <ins><span class="price-amount"><span class="currencySymbol">Hanya Mulai&nbsp;</span>Rp. 15.000</span></ins>
+                                            </div>
+                                            <div class="buttons">
+                                                <a href="belanja" class="btn add-to-cart-btn">Lihat Produk</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slide-contain biolife-banner__special">
+                                <div class="banner-contain">
+                                    <div class="media">
+                                        <a href="#" class="bn-link">
+                                            <figure><img src="assets/images/home-03/bn_special_org.jpg" width="616" height="483" alt=""></figure>
+                                        </a>
+                                    </div>
+                                    <div class="text-content">
+                                        <b class="first-line">Smoothie</b>
+                                        <span class="second-line">Buatan Buah Organik</span>
                                         <span class="third-line">Mudah <i>Hidup Sehat, Bahagia</i></span>
                                         <div class="product-detail">
                                             <h4 class="product-name">Produksi Buah Segar Nasional</h4>
@@ -316,8 +341,8 @@ session_start();
                                         </a>
                                     </div>
                                     <div class="text-content">
-                                        <b class="first-line">Delima</b>
-                                        <span class="second-line">Buatan Surga Organik</span>
+                                        <b class="first-line">Smoothie</b>
+                                        <span class="second-line">Buatan Buah Organik</span>
                                         <span class="third-line">Mudah <i>Hidup Sehat, Bahagia</i></span>
                                         <div class="product-detail">
                                             <h4 class="product-name">Produksi Buah Segar Nasional</h4>
@@ -341,33 +366,8 @@ session_start();
                                         </a>
                                     </div>
                                     <div class="text-content">
-                                        <b class="first-line">Delima</b>
-                                        <span class="second-line">Buatan Surga Organik</span>
-                                        <span class="third-line">Mudah <i>Hidup Sehat, Bahagia</i></span>
-                                        <div class="product-detail">
-                                            <h4 class="product-name">Produksi Buah Segar Nasional</h4>
-                                            <div class="price price-contain">
-                                                <ins><span class="price-amount"><span class="currencySymbol">Hanya Mulai&nbsp;</span>Rp. 20.000</span></ins>
-                                            </div>
-                                            <div class="buttons">
-                                                <a href="belanja" class="btn add-to-cart-btn">Lihat Produk</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="slide-contain biolife-banner__special">
-                                <div class="banner-contain">
-                                    <div class="media">
-                                        <a href="#" class="bn-link">
-                                            <figure><img src="assets/images/home-03/bn_special_org.jpg" width="616" height="483" alt=""></figure>
-                                        </a>
-                                    </div>
-                                    <div class="text-content">
-                                        <b class="first-line">Delima</b>
-                                        <span class="second-line">Buatan Surga Organik</span>
+                                        <b class="first-line">Smoothie</b>
+                                        <span class="second-line">Buatan Buah Organik</span>
                                         <span class="third-line">Mudah <i>Hidup Sehat, Bahagia</i></span>
                                         <div class="product-detail">
                                             <h4 class="product-name">Produksi Buah Segar Nasional</h4>
@@ -495,9 +495,9 @@ session_start();
                             <div class="container text-wrap">
                                 <i class="first-line">Jus Buah Sehat</i>
                                 <span class="second-line">Sayuran Selalu segar</span>
-                                <p class="third-line">Food Heaven Made Easy kedengarannya seperti nama layanan pengiriman makanan yang luar biasa lezat, tetapi jangan terkecoh...</p>
+                                <p class="third-line">Chef Food Health makanan yang luar biasa lezat, dan nikmat...</p>
                                 <div class="product-detail">
-                                    <p class="txt-price"><span>Hanya:&nbsp;</span>Rp. 20.000</p>
+                                    <p class="txt-price"><span>Hanya:&nbsp;</span>Rp. 15.000</p>
                                     <a href="#" class="btn add-to-cart-btn">Keranjang</a>
                                 </div>
                             </div>

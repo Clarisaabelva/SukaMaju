@@ -333,7 +333,7 @@ session_start();
                         // Buat kondisi WHERE dinamis
                         $where = [];
                         if (!empty($search)) {
-                            $where[] = "(p.nm_produk LIKE '%$search%' OR p.ket LIKE '%$search%')";
+                            $where[] = "(p.nm_produk LIKE '%$search%' OR p.desk LIKE '%$search%')";
                         }
                         if (!empty($kategori)) {
                             $where[] = "p.id_ktg = '$kategori'";
@@ -371,7 +371,7 @@ session_start();
                                             <div class="info">
                                                 <b class="categories"><?php echo $data['nm_ktg']; ?></b>
                                                 <h4 class="product-title"><a href="detail_produk.php?id=<?php echo $data['id_produk']; ?>" class="pr-name"><?php echo $data['nm_produk']; ?></a></h4>
-                                                <p class="excerpt"><?php echo $data['ket']; ?></p>
+                                                <p class="excerpt"><?php echo $data['desk']; ?></p>
                                                 <div class="price">
                                                     <ins><span class="price-amount"><span class="currencySymbol">Rp.</span><?php echo number_format($data['harga'], 0, ',', '.'); ?></span></ins>
                                                 </div>

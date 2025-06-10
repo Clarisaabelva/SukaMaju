@@ -5,7 +5,7 @@ include 'admin/koneksi.php';
 // Pastikan ada parameter id_produk yang dikirim dari URL
 $id_produk = isset($_GET['id']) ? mysqli_real_escape_string($koneksi, $_GET['id']) : '';
 
-$query = "SELECT p.nm_produk, p.harga, p.stok, p.ket, p.gambar, k.nm_ktg 
+$query = "SELECT p.nm_produk, p.harga, p.stok, p.desk, p.gambar, k.nm_ktg 
           FROM tb_produk p
           JOIN tb_ktg k ON p.id_ktg = k.id_ktg
           WHERE p.id_produk = '$id_produk'";
@@ -14,7 +14,7 @@ $result = $koneksi->query($query);
 $produk = $result->fetch_assoc();
 
 // Query untuk produk lain selain produk yang sedang dibuka
-$query_lainnya = "SELECT id_produk, nm_produk, ket, harga, gambar, (SELECT nm_ktg FROM tb_ktg WHERE tb_ktg.id_ktg = p.id_ktg) as kategori 
+$query_lainnya = "SELECT id_produk, nm_produk, desk, harga, gambar, (SELECT nm_ktg FROM tb_ktg WHERE tb_ktg.id_ktg = p.id_ktg) as kategori 
                   FROM tb_produk p
                   WHERE id_produk != '$id_produk'
                   ORDER BY RAND()
@@ -332,7 +332,7 @@ if (isset($_POST['add_to_cart'])) {
                     <div class="product-attribute">
                         <h3 class="title"><?php echo $produk['nm_produk']; ?></h3>
                         <span class="sku"><?php echo $produk['nm_ktg']; ?></span>
-                        <p class="excerpt"><?php echo nl2br($produk['ket']); ?></p>
+                        <p class="excerpt"><?php echo nl2br($produk['desk']); ?></p>
                         <div class="price">
                             <ins><span class="price-amount"><span class="currencySymbol">Rp.</span><?php echo number_format($produk['harga'], 0, ',', '.'); ?></span></ins>
                         </div>
@@ -378,7 +378,7 @@ if (isset($_POST['add_to_cart'])) {
                     </div>
                     <div class="tab-content">
                         <div id="tab_1st" class="tab-contain desc-tab active">
-                            <p class="desc"><?php echo nl2br($produk['ket']); ?></p>
+                            <p class="desc"><?php echo nl2br($produk['desk']); ?></p>
                         </div>
                         <div id="tab_2nd" class="tab-contain addtional-info-tab">
                             <table class="tbl_attributes">
@@ -419,7 +419,7 @@ if (isset($_POST['add_to_cart'])) {
                                             <ins><span class="price-amount"><span class="currencySymbol">Rp.</span><?= number_format($produk_lain['harga'], 0, ',', '.'); ?></span></ins>
                                         </div>
                                         <div class="slide-down-box">
-                                            <p class="message"><?= $produk_lain['ket']; ?></p>
+                                            <p class="message"><?= $produk_lain['desk']; ?></p>
                                             <div class="buttons">
                                                 <a href="detail_produk.php?id=<?= $produk_lain['id_produk']; ?>" class="btn add-to-cart-btn">
                                                     <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Keranjang
